@@ -1,10 +1,20 @@
 version: "2"
 services:
-  web:
+  mongo:
+    image: mongo:latest
+    ports:
+      - 27017
+  redis:
+    image: redis:alpine
+    ports:
+      - 6379
+  locker:
     build:
       context: .
     environment:
-    - PORT=4001
+      - MONGODB_PATH=mongodb://mongo:27017/learninglocker_v2
+    links:
+      - mongo
+      - redis
     ports:
-    - 80:4001/tcp
-    - 443:4001/tcp
+      - 3000:3000
