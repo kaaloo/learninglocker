@@ -8,13 +8,23 @@ services:
     image: redis:alpine
     ports:
       - 6379
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    links:
+      - locker
+    ports:
+      - 80:80
   locker:
     build:
       context: .
+      dockerfile: Dockerfile.locker
     environment:
       - MONGODB_PATH=mongodb://mongo:27017/learninglocker_v2
     links:
       - mongo
       - redis
     ports:
-      - 3000:3000
+      - 3000
+      - 8080

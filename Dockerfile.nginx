@@ -1,0 +1,6 @@
+# Base image
+FROM nginx:stable-alpine
+
+# Add nginx config
+ADD nginx.conf.convox /etc/nginx/nginx.conf
+
