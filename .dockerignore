@@ -5,4 +5,5 @@
 ./.heroku 
 Dockerfile.locker
 Dockerfile.nginx
+Dockerfile.xapi
 docker-compose.yml

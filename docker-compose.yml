@@ -30,3 +30,12 @@ services:
     ports:
       - 3000
       - 8080
+  xapi:
+    build:
+      context: xapi-service
+      dockerfile: Dockerfile.xapi
+    environment:
+      - MONGODB_PATH=mongodb://mongo:27017/learninglocker_v2
+    links:
+      - redis
+      - mongo
