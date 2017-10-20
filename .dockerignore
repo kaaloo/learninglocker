@@ -2,7 +2,7 @@
 .env
 .git
 .gitignore
-
-
 ./.heroku 
-
+Dockerfile.locker
+Dockerfile.nginx
+docker-compose.yml

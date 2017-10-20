@@ -2,6 +2,8 @@ version: "2"
 services:
   mongo:
     image: mongo:latest
+    volumes:
+      - /data/db
     ports:
       - 27017
   redis:
